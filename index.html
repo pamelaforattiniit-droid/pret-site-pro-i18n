@@ -1,20 +1,96 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Site Pro Multi-langues</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prêt & Finance</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Bienvenue - Multi-langues</h1>
-  <nav>
-    <a href="index.html">Français</a> |
-    <a href="index_en.html">English</a> |
-    <a href="index_de.html">Deutsch</a> |
-    <a href="index_it.html">Italiano</a> |
-    <a href="index_pt.html">Português</a> |
-    <a href="index_nl.html">Nederlands</a>
-  </nav>
-  <p>Ceci est la page d'accueil en français.</p>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#0a66c2"/></svg>
+        <span>Prêt & Finance</span>
+      </div>
+      <div class="nav-right">
+        <select id="lang" class="lang-select">
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+          <option value="it">IT</option>
+          <option value="pt">PT</option>
+          <option value="nl">NL</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="card">
+        <div class="badge" data-i18n="hero_badge">Prêt & Finance</div>
+        <h1 data-i18n="hero_title">Offres de prêt claires, rapides et 100% en ligne</h1>
+        <p data-i18n="hero_sub">Taux transparents, réponse rapide et accompagnement humain.</p>
+        <div class="cta">
+          <a href="#contact" class="btn" data-i18n="cta_primary">Demander une simulation</a>
+          <a href="#services" class="btn ghost" data-i18n="cta_secondary">Voir nos services</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="v" data-i18n="k1">48h</div><div class="l" data-i18n="k1l">Décaissement moyen</div></div>
+          <div class="kpi"><div class="v" data-i18n="k2">3,2%</div><div class="l" data-i18n="k2l">Taux à partir de</div></div>
+          <div class="kpi"><div class="v" data-i18n="k3">4,9★</div><div class="l" data-i18n="k3l">Satisfaction client</div></div>
+        </div>
+      </div>
+      <div class="illus"></div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <h2 data-i18n="s_title">Nos services</h2>
+      <div class="grid-3">
+        <div class="feature card">
+          <h3 data-i18n="s1">Prêt personnel</h3>
+          <p data-i18n="s1d">Financez un projet, sans justificatif d'achat.</p>
+        </div>
+        <div class="feature card">
+          <h3 data-i18n="s2">Rachat de crédit</h3>
+          <p data-i18n="s2d">Regroupez vos crédits et réduisez vos mensualités.</p>
+        </div>
+        <div class="feature card">
+          <h3 data-i18n="s3">Prêt auto</h3>
+          <p data-i18n="s3d">Un véhicule, neuf ou d’occasion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container split">
+      <div>
+        <h2 data-i18n="c_title">Contact</h2>
+        <p data-i18n="c_desc">Laissez-nous un message. Nous répondons rapidement.</p>
+      </div>
+      <form action="https://formspree.io/f/mayvlxyz" method="POST">
+        <label data-i18n="f_name">Nom complet</label>
+        <input type="text" name="name" required />
+        <label data-i18n="f_email">Email</label>
+        <input type="email" name="email" required />
+        <label data-i18n="f_msg">Votre message</label>
+        <textarea name="message" required></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn" data-i18n="f_send">Envoyer la demande</button>
+        </div>
+        <div class="notice" data-i18n="legal">Site de démonstration générique.</div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> Prêt & Finance
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
