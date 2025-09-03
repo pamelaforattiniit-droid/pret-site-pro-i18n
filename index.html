@@ -1,1 +1,60 @@
-<!DOCTYPE html><html lang='fr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Prêt & Finance</title><link rel='stylesheet' href='style.css'><script defer src='script.js'></script></head><body><header><img src='images/logo.png' alt='Prêt & Finance' class='logo'><nav><select id='lang-switcher'><option value='fr'>Français</option><option value='en'>English</option><option value='de'>Deutsch</option><option value='it'>Italiano</option><option value='pt'>Português</option><option value='nl'>Nederlands</option></select></nav></header><main><section id='hero'><h1 data-i18n='title'>Prêt & Finance</h1><p data-i18n='subtitle'>Votre partenaire financier de confiance</p></section><section id='offers'><h2 data-i18n='offers_title'>Nos Offres de Prêt</h2><div class='card'><h3 data-i18n='offer1'>Prêt Personnel</h3><p data-i18n='offer1_desc'>Jusqu'à 1 000 000€</p></div><div class='card'><h3 data-i18n='offer2'>Prêt Immobilier</h3><p data-i18n='offer2_desc'>Taux compétitifs pour vos projets</p></div></section><section id='loan-request'><h2 data-i18n='loan_request'>Demande de Prêt</h2><form id='loanForm'><input type='text' placeholder='Nom' required><input type='email' placeholder='Email' required><input type='number' placeholder='Montant (€)' max='1000000' required><button type='submit' data-i18n='submit'>Envoyer</button></form></section><section id='follow-up'><h2 data-i18n='follow_up'>Suivi de Demande</h2><form id='followForm'><input type='text' placeholder='ID de demande' required><button type='submit' data-i18n='check'>Vérifier</button></form></section><section id='testimonials'><h2 data-i18n='testimonials'>Témoignages</h2><div class='testimonial'><img src='images/user1.png' alt='Client 1'><p><strong>Jean Dupont</strong> - Entrepreneur<br>“Un service rapide et fiable !”</p></div><div class='testimonial'><img src='images/user2.png' alt='Client 2'><p><strong>Maria Rossi</strong> - Architecte<br>“J’ai obtenu mon prêt immobilier facilement.”</p></div><div class='testimonial'><img src='images/user3.png' alt='Client 3'><p><strong>Karl Müller</strong> - Ingénieur<br>“Des taux imbattables et un excellent suivi.”</p></div></section><section id='contact'><h2 data-i18n='contact'>Contact</h2><form id='contactForm'><input type='text' placeholder='Nom' required><input type='email' placeholder='Email' required><textarea placeholder='Message' required></textarea><button type='submit' data-i18n='send'>Envoyer</button></form></section><section id='chat'><h2 data-i18n='chat'>Chat Service Client</h2><div id='chat-box'></div><input type='text' id='chat-input' placeholder='Écrire un message...'><button id='chat-send'>Envoyer</button></section></main><footer><p>© 2025 Prêt & Finance</p></footer></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prêt & Finance</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Prêt & Finance" class="logo">
+    <h1>Prêt & Finance</h1>
+    <p>Votre partenaire financier de confiance</p>
+  </header>
+
+  <main>
+    <section id="offers">
+      <h2>Nos Offres de Prêt</h2>
+      <div class="card">Prêt personnel jusqu’à 1 000 000 €</div>
+      <div class="card">Crédit rapide et flexible</div>
+    </section>
+
+    <section id="propositions">
+      <h2>Nos Propositions de Financement</h2>
+      <div class="propositions-grid">
+        <div class="card">
+          <i class="fa-solid fa-house icon"></i>
+          <h3>Achat de maison</h3>
+          <p>Financement immobilier jusqu’à 1 000 000 € avec taux préférentiel.</p>
+          <button>En savoir plus</button>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-car icon"></i>
+          <h3>Achat de voiture</h3>
+          <p>Prêt auto rapide et flexible jusqu’à 100 000 €.</p>
+          <button>En savoir plus</button>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-briefcase icon"></i>
+          <h3>Financement de projets</h3>
+          <p>Prêt pour projets professionnels ou personnels avec montant adaptable.</p>
+          <button>En savoir plus</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form>
+        <input type="text" placeholder="Nom">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
