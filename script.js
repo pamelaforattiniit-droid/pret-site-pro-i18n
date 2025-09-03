@@ -1,27 +1,56 @@
-// 🌍 Gestion multilingue
-const translations = {
-  fr: { title: "Prêt & Finance", contact: "Contactez-nous", send: "Envoyer" },
-  en: { title: "Loan & Finance", contact: "Contact Us", send: "Send" },
-  de: { title: "Kredit & Finanzen", contact: "Kontaktieren Sie uns", send: "Senden" },
-  it: { title: "Prestito & Finanza", contact: "Contattaci", send: "Invia" },
-  pt: { title: "Empréstimo & Finança", contact: "Contate-nos", send: "Enviar" },
-  nl: { title: "Lening & Financiën", contact: "Neem contact op", send: "Versturen" }
-};
-function changeLanguage() {
-  const lang = document.getElementById("lang-select").value;
-  document.getElementById("title").innerText = translations[lang].title;
-  document.getElementById("contact-title").innerText = translations[lang].contact;
-  document.getElementById("send-btn").innerText = translations[lang].send;
-}
-// 📩 Gestion du formulaire (stockage local)
-document.getElementById("contact-form").addEventListener("submit", function(e) {
+// Gestion multilingue (simplifiée)
+document.getElementById("language-selector").addEventListener("change", function() {
+  alert("🌍 Langue changée en : " + this.value);
+});
+
+// Formulaire de prêt
+document.getElementById("loan-form").addEventListener("submit", e => {
   e.preventDefault();
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
+  const name = document.getElementById("loan-name").value;
+  const email = document.getElementById("loan-email").value;
+  const amount = document.getElementById("loan-amount").value;
+  let loans = JSON.parse(localStorage.getItem("loans")) || [];
+  loans.push({name, email, amount, date: new Date().toLocaleString()});
+  localStorage.setItem("loans", JSON.stringify(loans));
+  document.getElementById("loan-confirmation").style.display = "block";
+  e.target.reset();
+});
+
+// Suivi de demande
+document.getElementById("followup-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const id = document.getElementById("followup-id").value;
+  const income = document.getElementById("income").value;
+  const employment = document.getElementById("employment").value;
+  let followups = JSON.parse(localStorage.getItem("followups")) || [];
+  followups.push({id, income, employment, date: new Date().toLocaleString()});
+  localStorage.setItem("followups", JSON.stringify(followups));
+  document.getElementById("followup-confirmation").style.display = "block";
+  e.target.reset();
+});
+
+// Formulaire contact
+document.getElementById("contact-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const name = document.getElementById("contact-name").value;
+  const email = document.getElementById("contact-email").value;
+  const message = document.getElementById("contact-message").value;
   let messages = JSON.parse(localStorage.getItem("messages")) || [];
-  messages.push({ name, email, message, date: new Date().toLocaleString() });
+  messages.push({name, email, message, date: new Date().toLocaleString()});
   localStorage.setItem("messages", JSON.stringify(messages));
-  document.getElementById("form-response").innerText = "✅ Message enregistré localement !";
-  this.reset();
+  document.getElementById("contact-confirmation").style.display = "block";
+  e.target.reset();
+});
+
+// Chat
+document.getElementById("chat-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const input = document.getElementById("chat-input");
+  let chats = JSON.parse(localStorage.getItem("chats")) || [];
+  const msg = { text: input.value, date: new Date().toLocaleString() };
+  chats.push(msg);
+  localStorage.setItem("chats", JSON.stringify(chats));
+  const box = document.getElementById("chat-box");
+  box.innerHTML += `<p><strong>Client:</strong> ${msg.text}</p>`;
+  input.value = "";
 });

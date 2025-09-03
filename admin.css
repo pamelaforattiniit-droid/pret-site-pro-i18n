@@ -1,34 +1,9 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f0f8ff;
-  padding: 20px;
-}
-#login, #dashboard {
-  max-width: 500px;
-  margin: auto;
-  text-align: center;
-}
-input, button {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-}
-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-button:hover {
-  background: #0056b3;
-}
-table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
+body { font-family: Arial, sans-serif; background: #f0f8ff; color: #003366; padding: 20px; }
+h1, h2 { color: #003366; }
+form { margin: 10px 0; }
+input, button { padding: 8px; margin: 5px; border-radius: 5px; border: 1px solid #ccc; }
+button { background: #003366; color: white; cursor: pointer; }
+button:hover { background: #0055aa; }
+table { width: 100%; margin-top: 10px; border-collapse: collapse; }
+th { background: #003366; color: white; }
+td, th { padding: 8px; border: 1px solid #ccc; text-align: center; }

@@ -5,30 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prêt & Finance</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <h1 id="title">Prêt & Finance</h1>
-    <select id="lang-select" onchange="changeLanguage()">
-      <option value="fr">🇫🇷 Français</option>
-      <option value="en">🇬🇧 English</option>
-      <option value="de">🇩🇪 Deutsch</option>
-      <option value="it">🇮🇹 Italiano</option>
-      <option value="pt">🇵🇹 Português</option>
-      <option value="nl">🇳🇱 Nederlands</option>
-    </select>
+    <h1>💶 Prêt & Finance</h1>
+    <nav>
+      <select id="language-selector">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="pt">Português</option>
+        <option value="nl">Nederlands</option>
+      </select>
+    </nav>
   </header>
 
   <main>
-    <h2 id="contact-title">Contactez-nous</h2>
-    <form id="contact-form">
-      <input type="text" id="name" placeholder="Nom" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <textarea id="message" placeholder="Message" required></textarea>
-      <button type="submit" id="send-btn">Envoyer</button>
-    </form>
-    <p id="form-response"></p>
+    <section id="offers">
+      <h2>🏦 Nos offres de prêt</h2>
+      <p>Profitez de nos taux compétitifs pour vos projets personnels et professionnels.</p>
+      <ul>
+        <li>Prêt personnel jusqu'à 50.000 €</li>
+        <li>Prêt immobilier jusqu'à 500.000 €</li>
+        <li>Prêt entreprise jusqu'à 1.000.000 €</li>
+      </ul>
+    </section>
+
+    <section id="loan-request">
+      <h2>📑 Demande de prêt</h2>
+      <form id="loan-form">
+        <label>Nom complet :</label>
+        <input type="text" id="loan-name" required>
+        <label>Email :</label>
+        <input type="email" id="loan-email" required>
+        <label>Montant souhaité (€) :</label>
+        <input type="number" id="loan-amount" max="1000000" required>
+        <button type="submit">Soumettre la demande</button>
+      </form>
+      <p id="loan-confirmation" style="display:none; color:green;">✅ Demande enregistrée !</p>
+    </section>
+
+    <section id="testimonials">
+      <h2>💬 Témoignages</h2>
+      <blockquote>"Service rapide et fiable, j'ai obtenu mon prêt en quelques jours !" – Marie L.</blockquote>
+      <blockquote>"Excellent accompagnement, je recommande vivement." – Johan K.</blockquote>
+      <blockquote>"Des conditions claires et transparentes." – Sofia R.</blockquote>
+    </section>
+
+    <section id="loan-followup">
+      <h2>📋 Suivi de demande</h2>
+      <form id="followup-form">
+        <label>Numéro de demande :</label>
+        <input type="text" id="followup-id" required>
+        <label>Revenu mensuel (€) :</label>
+        <input type="number" id="income" required>
+        <label>Situation professionnelle :</label>
+        <select id="employment" required>
+          <option value="salarie">Salarié</option>
+          <option value="independant">Indépendant</option>
+          <option value="chomeur">Sans emploi</option>
+          <option value="retraite">Retraité</option>
+        </select>
+        <button type="submit">Soumettre</button>
+      </form>
+      <p id="followup-confirmation" style="display:none; color:green;">✅ Suivi enregistré !</p>
+    </section>
+
+    <section id="contact">
+      <h2>📩 Contact</h2>
+      <form id="contact-form">
+        <label>Nom :</label>
+        <input type="text" id="contact-name" required>
+        <label>Email :</label>
+        <input type="email" id="contact-email" required>
+        <label>Message :</label>
+        <textarea id="contact-message" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+      <p id="contact-confirmation" style="display:none; color:green;">✅ Message envoyé !</p>
+    </section>
+
+    <section id="chat">
+      <h2>💬 Chat en direct</h2>
+      <div id="chat-box" style="border:1px solid #ccc; height:200px; overflow-y:auto; padding:10px; background:#fff;"></div>
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Écrivez votre message..." required>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
   </main>
 </body>
 </html>
