@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Prêt & Finance</title>
+  <link rel="stylesheet" href="admin.css">
+  <script>
+    function login(e) {
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if(user === "admin" && pass === "1234") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+        loadMessages();
+      } else {
+        alert("Identifiants incorrects !");
+      }
+    }
+    function loadMessages() {
+      let messages = JSON.parse(localStorage.getItem("messages")) || [];
+      let table = document.getElementById("messages");
+      table.innerHTML = "";
+      messages.forEach((msg, i) => {
+        table.innerHTML += `<tr>
+          <td>${i+1}</td>
+          <td>${msg.name}</td>
+          <td>${msg.email}</td>
+          <td>${msg.message}</td>
+          <td>${msg.date}</td>
+        </tr>`;
+      });
+    }
+  </script>
+</head>
+<body>
+  <div id="login">
+    <h2>Connexion Admin</h2>
+    <form onsubmit="login(event)">
+      <input type="text" id="username" placeholder="Utilisateur">
+      <input type="password" id="password" placeholder="Mot de passe">
+      <button type="submit">Se connecter</button>
+    </form>
+  </div>
+  <div id="dashboard" style="display:none;">
+    <h2>📩 Messages reçus</h2>
+    <table border="1">
+      <tr><th>#</th><th>Nom</th><th>Email</th><th>Message</th><th>Date</th></tr>
+      <tbody id="messages"></tbody>
+    </table>
+  </div>
+</body>
+</html>
