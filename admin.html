@@ -7,99 +7,33 @@
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-  <h1>🔐 Espace Administrateur</h1>
-  <section id="login-section">
-    <form id="login-form">
-      <input type="text" id="admin-user" placeholder="Utilisateur" required>
-      <input type="password" id="admin-pass" placeholder="Mot de passe" required>
-      <button type="submit">Connexion</button>
-    </form>
-    <p id="login-error" style="color:red; display:none;">❌ Identifiants incorrects</p>
-  </section>
-
-  <section id="dashboard" style="display:none;">
-    <h2>📑 Demandes de prêt</h2>
-    <table border="1" cellpadding="10" id="loan-table">
-      <tr><th>Nom</th><th>Email</th><th>Montant (€)</th><th>Date</th></tr>
-    </table>
-
-    <h2>📋 Suivis</h2>
-    <table border="1" cellpadding="10" id="followup-table">
-      <tr><th>ID</th><th>Revenu</th><th>Situation</th><th>Date</th></tr>
-    </table>
-
-    <h2>📩 Messages</h2>
-    <table border="1" cellpadding="10" id="message-table">
-      <tr><th>Nom</th><th>Email</th><th>Message</th><th>Date</th></tr>
-    </table>
-
-    <h2>💬 Chat</h2>
-    <div id="admin-chat"></div>
-
-    <h2>💳 Créditer un emprunteur</h2>
-    <form id="credit-form">
-      <input type="text" id="borrower" placeholder="Nom de l'emprunteur" required>
-      <input type="number" id="credit-amount" placeholder="Montant (€)" max="1000000" required>
-      <button type="submit">Créditer</button>
-    </form>
-    <table border="1" cellpadding="10" id="credit-table">
-      <tr><th>Nom</th><th>Montant (€)</th><th>Date</th></tr>
-    </table>
-  </section>
-
-  <script>
-  const loginForm = document.getElementById("login-form");
-  loginForm.addEventListener("submit", e => {
-    e.preventDefault();
-    const user = document.getElementById("admin-user").value;
-    const pass = document.getElementById("admin-pass").value;
-    if(user === "admin" && pass === "1234") {
-      document.getElementById("login-section").style.display = "none";
-      document.getElementById("dashboard").style.display = "block";
-      loadData();
-    } else {
-      document.getElementById("login-error").style.display = "block";
-    }
-  });
-
-  function loadData() {
-    let loans = JSON.parse(localStorage.getItem("loans")) || [];
-    loans.forEach(l => {
-      document.getElementById("loan-table").innerHTML += `<tr><td>${l.name}</td><td>${l.email}</td><td>${l.amount}</td><td>${l.date}</td></tr>`;
-    });
-
-    let followups = JSON.parse(localStorage.getItem("followups")) || [];
-    followups.forEach(f => {
-      document.getElementById("followup-table").innerHTML += `<tr><td>${f.id}</td><td>${f.income}</td><td>${f.employment}</td><td>${f.date}</td></tr>`;
-    });
-
-    let messages = JSON.parse(localStorage.getItem("messages")) || [];
-    messages.forEach(m => {
-      document.getElementById("message-table").innerHTML += `<tr><td>${m.name}</td><td>${m.email}</td><td>${m.message}</td><td>${m.date}</td></tr>`;
-    });
-
-    let chats = JSON.parse(localStorage.getItem("chats")) || [];
-    chats.forEach(c => {
-      document.getElementById("admin-chat").innerHTML += `<p><strong>Client:</strong> ${c.text}</p>`;
-    });
-
-    let credits = JSON.parse(localStorage.getItem("credits")) || [];
-    credits.forEach(c => {
-      document.getElementById("credit-table").innerHTML += `<tr><td>${c.borrower}</td><td>${c.amount}</td><td>${c.date}</td></tr>`;
-    });
+  <div id="login">
+    <h2>Connexion Admin</h2>
+    <input type="text" id="username" placeholder="Utilisateur">
+    <input type="password" id="password" placeholder="Mot de passe">
+    <button onclick="login()">Se connecter</button>
+  </div>
+  <div id="dashboard" style="display:none;">
+    <h2>Tableau de bord</h2>
+    <p>Ici vous pouvez gérer les demandes de prêts, le chat et le suivi.</p>
+    <div id="requests"></div>
+    <button onclick="logout()">Se déconnecter</button>
+  </div>
+<script>
+function login(){
+  const u=document.getElementById('username').value;
+  const p=document.getElementById('password').value;
+  if(u==='admin' && p==='1234'){
+    document.getElementById('login').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+  } else {
+    alert('Identifiants incorrects');
   }
-
-  document.getElementById("credit-form").addEventListener("submit", e => {
-    e.preventDefault();
-    const borrower = document.getElementById("borrower").value;
-    const amount = document.getElementById("credit-amount").value;
-    let credits = JSON.parse(localStorage.getItem("credits")) || [];
-    const newCredit = { borrower, amount, date: new Date().toLocaleString() };
-    credits.push(newCredit);
-    localStorage.setItem("credits", JSON.stringify(credits));
-    document.getElementById("credit-table").innerHTML += `<tr><td>${borrower}</td><td>${amount}</td><td>${newCredit.date}</td></tr>`;
-    e.target.reset();
-  });
-  </script>
+}
+function logout(){
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('login').style.display='block';
+}
+</script>
 </body>
 </html>

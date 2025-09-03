@@ -1,9 +1,5 @@
-body { font-family: Arial, sans-serif; background: #f0f8ff; color: #003366; padding: 20px; }
-h1, h2 { color: #003366; }
-form { margin: 10px 0; }
-input, button { padding: 8px; margin: 5px; border-radius: 5px; border: 1px solid #ccc; }
-button { background: #003366; color: white; cursor: pointer; }
-button:hover { background: #0055aa; }
-table { width: 100%; margin-top: 10px; border-collapse: collapse; }
-th { background: #003366; color: white; }
-td, th { padding: 8px; border: 1px solid #ccc; text-align: center; }
+body { font-family: Arial, sans-serif; background:#eef; padding:2rem; }
+#login, #dashboard { background:#fff; padding:2rem; border-radius:8px; max-width:400px; margin:auto; box-shadow:0 2px 5px rgba(0,0,0,0.2); }
+input { display:block; width:100%; margin-bottom:1rem; padding:0.5rem; }
+button { background:#004080; color:white; border:none; padding:0.5rem 1rem; border-radius:5px; cursor:pointer; }
+button:hover { background:#0066cc; }
